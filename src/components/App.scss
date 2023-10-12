@@ -1,0 +1,118 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.login-container{
+    width: 100vw;
+    background: linear-gradient(
+    to bottom,
+    #4285F4 0%,
+    #4285F4 55%,
+    white 55%,
+    white 100%
+  );
+}
+
+.logregcard{
+margin-top:  5vh;
+width: 25rem;
+   padding: 1rem;
+border-radius: 2.5rem !important;
+background: #FFF;
+box-shadow: 0px 4px 35px 0px rgba(0, 0, 0, 0.08);
+        a{
+            text-decoration: none;
+        }
+        .reglabel{
+            color: black;
+        }
+        .card-header{
+            background-color: white !important;
+            border: none;
+            height: 20.904vh;
+            flex-direction: column;
+            }
+    .card-header-welcome-to{
+        color: #000;
+        font-family: Poppins;
+        font-size: 1.094vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .card-header-project-name{
+        color: #0089ED;
+        font-family: Poppins;
+        font-size: 1.094vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .logregcard-title{
+        color: #000;
+        font-family: Poppins;
+        font-size: 3vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-align: left !important;
+    }
+    .to-log-register{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .to-log-register-button , .reglabel{
+        color: #0089ED;
+        font-family: Poppins;
+        font-size: 0.994vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        a{
+            font-size: 0.994vw;
+
+        }
+    }
+    .to-log-register-text{
+        color: #8D8D8D;
+        font-family: Poppins;
+        font-size: 0.994vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .pheader{
+        width: fit-content;
+    }
+    .google-button{
+        font-size: 1.2vw;
+        width: 100%;
+        height: 7.75vh;
+        display: flex;
+        column-gap: 1.31rem;
+        justify-content:center ;
+        align-items: center;
+        margin-bottom: 2.25vh;
+        margin-top: 1.5rem;
+        border-radius: 0.5625rem;
+        background: #E9F1FF;
+        border: none;
+        color: #4285F4;
+
+
+    }
+    .form-label{
+        color: #000;
+        font-family: Poppins;
+        font-size: 1.2vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .button{
+        width: 100%;
+    }
+  }
+  .quimieti-logo{
+    margin-right: auto;
+  }
