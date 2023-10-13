@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Form, Button ,Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import '../styles/Login.scss';
+import '../styles/Register.scss';
 
 
 const Login = () => {
@@ -57,11 +57,11 @@ const Login = () => {
         <Card.Header >
             <div className='to-log-register'>
             <div><span className='card-header-welcome-to'>Bienvenido a</span> <span className='card-header-project-name'>Quimieti</span></div>
-              <p className='pheader' style={{marginBottom:'0'}}> <span className='to-log-register-text'>No tienes cuenta?</span>
+              <p className='pheader' style={{marginBottom:'0'}}> <span className='to-log-register-text'>Ya tienes cuenta?</span>
                 <br />
-                <Link to="/register" className='to-log-register-button mb-3'>Registrate</Link> </p>
+                <Link to="/login" className='to-log-register-button mb-3'>Inicia Sesion</Link> </p>
             </div>
-            <h2 className="text-center logregcard-title"  >Inicia Sesión</h2>
+            <h2 className="text-center logregcard-title"  >Registrate</h2>
 
         </Card.Header>
         <Card.Body>
@@ -70,8 +70,16 @@ const Login = () => {
   <path d="M13.2326 24.375C16.3664 24.375 18.9974 23.3638 20.919 21.6197L17.2563 18.839C16.2762 19.5089 14.9607 19.9766 13.2326 19.9766C10.1632 19.9766 7.55803 17.9923 6.62938 15.2496L6.49326 15.261L2.9104 17.9784L2.86354 18.106C4.77224 21.8218 8.69287 24.375 13.2326 24.375Z" fill="#34A853"/>
   <path d="M6.63006 15.2497C6.38502 14.5419 6.24321 13.7835 6.24321 13C6.24321 12.2163 6.38502 11.458 6.61717 10.7502L6.61067 10.5995L2.9829 7.83849L2.86421 7.89381C2.07754 9.43578 1.62614 11.1673 1.62614 13C1.62614 14.8326 2.07754 16.5641 2.86421 18.106L6.63006 15.2497Z" fill="#FBBC05"/>
   <path d="M13.2326 6.0233C15.4122 6.0233 16.8824 6.94594 17.7207 7.71696L20.9965 4.5825C18.9846 2.74987 16.3665 1.625 13.2326 1.625C8.69291 1.625 4.77225 4.17804 2.86354 7.89384L6.61651 10.7503C7.55806 8.00763 10.1632 6.0233 13.2326 6.0233Z" fill="#EB4335"/>
-</svg>Inicia sesion con google</Button>
-            <Form >
+</svg>Registrate con google</Button>
+            <Form className='row' >
+            <Form.Group className="mb-2 col">
+            <Form.Label>Nombre</Form.Label>
+                        <Form.Control type="text" name="name" placeholder="Nombre"  />
+                    </Form.Group>
+                    <Form.Group className="mb-2 col">
+                        <Form.Label>Apellidos</Form.Label>
+                        <Form.Control type="text" name="apellidos" placeholder="Apellidos"  />
+                    </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Ingresa tu usuario o correo electronico</Form.Label>
                     <Form.Control type="email" placeholder="Email" name="email"  />
@@ -83,12 +91,10 @@ const Login = () => {
                    </Row>
                     <Form.Control type="password" placeholder="Contraseña" name="password"  />
                 </Form.Group>
-                <Form.Group className="mb-3 d-flex justify-content-end" controlId="formBasicCheckbox">
-                    <Form.Label className='reglabel'><Link to="/recuperar-contrasena">Olvide mi contraseña</Link></Form.Label> 
-                </Form.Group>
                 <div className="text-center">
-                    <Button variant="primary" className='submit-button'  type="submit">
-                        Iniciar Sesión
+                    
+                    <Button className='submbit-button' variant="primary"  type="submit">
+                        Registrar
                     </Button>
                 </div>
             </Form>

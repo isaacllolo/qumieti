@@ -13,8 +13,8 @@
   );
 }
 .logregcard{
+    margin-top:  5vh;
     width: 25rem;
-    height: fit-content;
        padding: 1rem;
     border-radius: 2.5rem !important;
     background: #FFF;
@@ -28,7 +28,6 @@
             .card-header{
                 background-color: white !important;
                 border: none;
-                //height: 20.904vh;
                 flex-direction: column;
                 }
         .card-header-welcome-to{
@@ -92,11 +91,11 @@
             column-gap: 1.31rem;
             justify-content:center ;
             align-items: center;
+            margin-bottom: 2.25vh;
             border-radius: 0.5625rem;
             background: #E9F1FF;
             border: none;
             color: #4285F4;
-            
     
     
         }
@@ -112,7 +111,7 @@
             width: 100%;
             background-color:#4285F4;            
       }
-      }
       .quimieti-logo{
         margin-right: auto;
       }
+    }
