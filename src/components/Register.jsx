@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import '../styles/Register.scss';
 
 
-const Login = () => {
+const Register = () => {
     return (
         
-        <div className="login-container d-flex justify-content-end pe-5">
+        <div className="register-container d-flex justify-content-end pe-5">
         <svg className="quimieti-logo"width="151" height="60" viewBox="0 0 151 60" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="Logo text">
         <g id="quimieti 1">
@@ -104,4 +104,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

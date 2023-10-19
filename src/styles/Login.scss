@@ -5,16 +5,13 @@
 .login-container{
     width: 100vw;
     background: linear-gradient(
-    to bottom,
-    #4285F4 0%,
-    #4285F4 55%,
-    white 55%,
-    white 100%
-  );
+        116deg, rgba(66, 109, 244, 0.75) 34.51%, rgba(55, 201, 112, 0.75) 81.97%) ;
+height: 100vh;
 }
 .logregcard{
     width: 25rem;
     height: fit-content;
+    margin-bottom: 1vh;
        padding: 1rem;
     border-radius: 2.5rem !important;
     background: #FFF;

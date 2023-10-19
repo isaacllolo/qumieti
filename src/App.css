@@ -2,4 +2,13 @@
   text-align: center;
   width: 100vw;
   padding: 0;
+  overflow: auto;
+
+}
+#root , html, body {
+  height: 100vh;
+}
+#root{
+  background: linear-gradient(
+        116deg, rgba(66, 109, 244, 0.75) 34.51%, rgba(55, 201, 112, 0.75) 81.97%) ;
 }
