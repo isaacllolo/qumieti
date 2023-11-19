@@ -6,6 +6,8 @@ import Course from './components/Course.jsx';
 import Home from './components/Home.jsx';
 import NavBar from './components/Navbar.jsx';
 import { Outlet } from 'react-router-dom';
+import Lesson from './components/Lesson.jsx';
+import Quiz from './components/Quiz.jsx';
 
 function App() {
   
@@ -17,6 +19,9 @@ function App() {
          <Route path="/login" element={<Login />} />
          <Route path="/register" element={<Register/>} />
          <Route path="/course" element={<Course/>} />
+         <Route path="/lesson" element={<Lesson/>} />
+          <Route path="/quiz" element={<Quiz/>} />
+
 
         
       

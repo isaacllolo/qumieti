@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.register-container {
+  width: 100vw;
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(116deg, rgba(66, 109, 244, 0.75) 34.51%, rgba(55, 201, 112, 0.75) 81.97%);
+}
+
+.logregcard {
+  margin-top: 1vh;
+  width: 25rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1rem;
+  border-radius: 2.5rem !important;
+  background: #FFF;
+  box-shadow: 0px 4px 35px 0px rgba(0, 0, 0, 0.08);
+}
+.logregcard a {
+  text-decoration: none;
+}
+.logregcard .reglabel {
+  color: black;
+}
+.logregcard .card-header {
+  background-color: white !important;
+  border: none;
+  flex-direction: column;
+}
+.logregcard .card-header-welcome-to {
+  color: #000;
+  font-family: Poppins;
+  font-size: 1.094vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.logregcard .card-header-project-name {
+  color: #0089ED;
+  font-family: Poppins;
+  font-size: 1.094vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.logregcard .logregcard-title {
+  color: #000;
+  font-family: Poppins;
+  font-size: 3vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: left !important;
+}
+.logregcard .to-log-register {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.logregcard .to-log-register-button, .logregcard .reglabel {
+  color: #0089ED;
+  font-family: Poppins;
+  font-size: 0.994vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.logregcard .to-log-register-button a, .logregcard .reglabel a {
+  font-size: 0.994vw;
+}
+.logregcard .to-log-register-text {
+  color: #8D8D8D;
+  font-family: Poppins;
+  font-size: 0.994vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.logregcard .pheader {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.logregcard .form-label {
+  color: #000;
+  font-family: Poppins;
+  font-size: 1.2vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.logregcard Button {
+  width: 100%;
+  background-color: #4285F4;
+}
+.logregcard .quimieti-logo {
+  margin-right: auto;
+}/*# sourceMappingURL=Register.css.map */

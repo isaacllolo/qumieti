@@ -1,33 +1,49 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'react-bootstrap';
+
+import React, { useState, useEffect } from 'react';
+import { Card, CardTitle, CardBody , Button} from 'react-bootstrap';
+import { LessonButton } from './Lesson-nav';
+import { Backbutton } from './Backbutton';
+import { Link } from 'react-router-dom';  // Importa el componente Link
+import '../styles/Course.scss';
+
 const Course = () => {
-    const [modal, setModal] = useState(true);
-    const toggle = () => setModal(!modal);
-    return (
-      <Container>
-        <Row>
-          <Col md="6">
-            <h3>Course Title</h3>
-            <p>Course Description</p>
-            <Button color="primary" onClick={toggle}>Enroll</Button>
-          </Col>
-          <Col md="6">
-            <h3>Course Title</h3>
-            <p>Course Description</p>
-            <Button color="primary" onClick={toggle}>Enroll</Button>
-          </Col>
-        </Row>
-        <Modal show={modal} toggle={toggle}>
-          <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-          <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={toggle}>Enroll</Button>{' '}
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
-          </ModalFooter>
-        </Modal>
-      </Container>
+  const [lessons, setLessons] = useState([]);
+
+  // Supongamos que lessonsData es la información que recibes del backend
+  const lessonsData = [
+    { id: 1, title: 'Lección 1', description: 'Descripción de la Lección 1', completed: true },
+    { id: 2, title: 'Lección 2', description: 'Descripción de la Lección 2', completed: false },
+    // ... otras lecciones
+  ];
+
+  useEffect(() => {
+    // Simulación de la obtención de datos del backend
+    setLessons(lessonsData);
+  }, []); // Ejecutar solo una vez al montar el componente
+
+  return (
+    <div className='course-container'>
+      <Card className='theme-nav'>
+        <CardTitle className='theme-title'>Nombre del tema</CardTitle>
+        <CardBody className='course-body'>
+          <div className='course-lessons'>
+          {lessons.map(lesson => (
+            
+              <LessonButton
+                key={lesson.id}
+                property1={lesson.completed ? 'completed' : 'default'}
+              completed={lesson.completed}
+              title={lesson.title}  // Asegúrate de que title esté definido en tu objeto lesson
+              description={lesson.description}  // Asegúrate de que description esté definido en tu objeto lesson
+              />
+            
+          ))}
+          </div>
+          <Backbutton className="backbutton" to="/"/>
+        </CardBody>
+      </Card>
+    </div>
   );
 };
+
 export default Course;

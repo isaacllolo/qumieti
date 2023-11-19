@@ -1,0 +1,64 @@
+.lesson-button {
+  height: 94px;
+  position: relative;
+  width: 483px;
+}
+
+.lesson-button .text {
+  height: 87px;
+  left: 114px;
+  position: absolute;
+  width: 310px;
+}
+
+.lesson-button .text-wrapper {
+  color: #525f7f;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 1.5rem;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 69.9px;
+  white-space: nowrap;
+  width: 306px;
+}
+
+.lesson-button .div {
+  color: #a1b2cf;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 1.25rem;
+  font-weight: 400;
+  height: 40px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 69.9px;
+  position: absolute;
+  top: 47px;
+  white-space: nowrap;
+  width: 283px;
+}
+
+.lesson-button .stroke {
+  height: 25px;
+  left: 470px;
+  position: absolute;
+  top: 40px;
+  width: 15px;
+}
+
+.lesson-button .group {
+  background-color: #eef0f7;
+  border-radius: 44.96px/41.35px;
+  height: 83px;
+  left: 0;
+  position: absolute;
+  top: 11px;
+  width: 90px;
+}
+
+.lesson-button .check {
+  background-color: rgba(251, 188, 5, 0.3490196078);
+  border-radius: 44.96px/41.35px;
+  height: 83px;
+  position: relative;
+}/*# sourceMappingURL=Lesson-nav.css.map */

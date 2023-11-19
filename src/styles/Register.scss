@@ -12,6 +12,7 @@
 .logregcard{
     margin-top:  1vh;
     width: 25rem;
+    height: fit-content;
        padding: 1rem;
     border-radius: 2.5rem !important;
     background: #FFF;
@@ -80,22 +81,7 @@
         .pheader{
             width: fit-content;
         }
-        .google-button{
-            font-size: 1.2vw;
-            width: 100%;
-            height: 7.75vh;
-            display: flex;
-            column-gap: 1.31rem;
-            justify-content:center ;
-            align-items: center;
-            margin-bottom: 2.25vh;
-            border-radius: 0.5625rem;
-            background: #E9F1FF;
-            border: none;
-            color: #4285F4;
     
-    
-        }
         .form-label{
             color: #000;
             font-family: Poppins;

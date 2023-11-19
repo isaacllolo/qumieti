@@ -9,9 +9,10 @@
 height: 100vh;
 }
 .logregcard{
+    align-self:center !important;
     width: 25rem;
-    height: fit-content;
-    margin-bottom: 1vh;
+    margin-top:  20vh;
+    height: fit-content !important;
        padding: 1rem;
     border-radius: 2.5rem !important;
     background: #FFF;
@@ -81,22 +82,7 @@ height: 100vh;
         .pheader{
             width: fit-content;
         }
-        .google-button{
-            font-size: 1.2vw;
-            width: 100%;
-            height: 7.75vh;
-            display: flex;
-            column-gap: 1.31rem;
-            justify-content:center ;
-            align-items: center;
-            border-radius: 0.5625rem;
-            background: #E9F1FF;
-            border: none;
-            color: #4285F4;
-            
     
-    
-        }
         .form-label{
             color: #000;
             font-family: Poppins;

@@ -1,0 +1,43 @@
+/* Estilos generales del Quiz */
+
+  
+ 
+  /* Estilos de las opciones de respuesta */
+  .answer-options {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .answer-option {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .answer-option:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .answer-option.selected {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  /* Estilos de los botones de navegación */
+  
+  
+  .slide-navigation button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  
+  

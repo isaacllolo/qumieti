@@ -1,0 +1,30 @@
+// Course.scss
+
+.slide-card {
+    background-color: #ffffff;  // Fondo blanco
+    width: 90vw;
+    margin: 3rem;
+    display: flex !important;
+  .card-title{
+      margin-top: 2vh !important;
+      color: #4285F4;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .slide-content {
+      // Estilos para el contenido de la diapositiva...
+    }
+    
+  
+    .slide-navigation {
+        padding: .5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+  }
+  

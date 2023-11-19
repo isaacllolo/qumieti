@@ -1,0 +1,54 @@
+.theme-title{
+    color: #FBBC05 !important; 
+    text-align: center;
+    font-family: Poppins;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.card-title{
+    margin-top: 2vh !important;
+}
+    .theme-nav{
+        width: 90vw;
+        margin: 3rem;
+        
+    }
+    .course-container{
+        background: linear-gradient(
+   116deg, rgba(66, 109, 244, 0.75) 34.51%, rgba(55, 201, 112, 0.75) 81.97%) ;
+        display: flex;
+        margin: 0%;
+        width: 100vw;
+        height: 100vh;
+       
+    }
+    lesson-title{
+        color: #FBBC05 !important; 
+        text-align: center;
+        font-family: Poppins;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .lesson-button {
+        transition: background-color 0.3s ease;  
+            
+        &:hover {
+          background-color: #f7f5f5;  
+        }
+      }
+    .course-lessons{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .course-body{
+        gap: 7rem !important;
+        display:flex;
+        flex-direction:column;
+        justify-content: space-between;
+    }
