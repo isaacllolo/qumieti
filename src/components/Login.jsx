@@ -1,10 +1,44 @@
-import React from 'react';
 import { Card, Form, Button ,Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../styles/Login.scss';
-
-
+import axios from 'axios';
+import { React ,useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Alert } from 'react-bootstrap';
+import Cookies from 'js-cookie';
 const Login = () => {
+    const navigate = useNavigate();
+    const [usuario, setUsuario] = useState('');
+    const [contrasena, setContrasena] = useState('');
+    const [error, setError] = useState('');
+  
+    const handleChange = (e) => {
+      if (e.target.name === 'usuario') {
+        setUsuario(e.target.value);
+      } else {
+        setContrasena(e.target.value);
+      }
+    };
+  
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          const response = await axios.post('http://localhost:5000/login', {
+            usuario: usuario,
+            contrasena: contrasena,
+          });
+      
+          if (response.data.status === 'success') {
+            console.log(response.data.token);
+            Cookies.set('token', response.data.token, { secure: true, sameSite: 'strict' });
+            // Redirige a la página principal
+            navigate('/');
+          }
+        } catch (error) {
+          setError(error.response.data);
+        }
+      };
+      
     return (
         
         <div className="login-container d-flex justify-content-end pe-5">
@@ -65,23 +99,27 @@ const Login = () => {
 
         </Card.Header>
         <Card.Body>
-            <Form >
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Ingresa tu usuario o correo electronico</Form.Label>
-                    <Form.Control type="email" placeholder="Email" name="email"  />
+            <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="formBasicusuario">
+                    <Form.Label>Ingresa tu usuario</Form.Label>
+                    <Form.Control type="user" placeholder="Usuario" name="usuario" value={usuario}
+                onChange={handleChange}  />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Row>
                         <Form.Label className="col-auto"> Ingresa tu contraseña</Form.Label>
                    </Row>
-                    <Form.Control type="password" placeholder="Contraseña" name="password"  />
+                    <Form.Control type="password" placeholder="Contraseña" name="contrasena" value={contrasena} onChange={handleChange}  />
                 </Form.Group>
                 <Form.Group className="mb-3 d-flex justify-content-end" controlId="formBasicCheckbox">
                     <Form.Label className='reglabel'><Link to="/recuperar-contrasena">Olvide mi contraseña</Link></Form.Label> 
                 </Form.Group>
+                <Alert variant="danger" className="mt-3" show={error}>
+                        {error}
+                    </Alert>
                 <div className="text-center">
-                    <Button variant="primary" className='submit-button'  type="submit">
+                    <Button variant="primary" className='submit-button'  type="submit" >
                         Iniciar Sesión
                     </Button>
                 </div>

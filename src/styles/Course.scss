@@ -35,7 +35,6 @@
     }
 
     .lesson-button {
-        transition: background-color 0.3s ease;  
             
         &:hover {
           background-color: #f7f5f5;  
@@ -43,11 +42,11 @@
       }
     .course-lessons{
         display: flex;
+        gap: 1rem;
         align-items: center;
         flex-direction: column;
     }
     .course-body{
-        gap: 7rem !important;
         display:flex;
         flex-direction:column;
         justify-content: space-between;

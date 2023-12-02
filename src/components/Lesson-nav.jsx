@@ -7,7 +7,7 @@ export const LessonButton = ({ property1, className, completed, title, descripti
     const navigate = useNavigate();
 
     const handleClick = () => {
-      navigate(`/courses/${lessonId}`);
+      navigate(`/lesson/${lessonId}`);
     };
   return (
     <div onClick={handleClick} style={{ cursor: 'pointer' }} className={`lesson-button ${className}`}>
@@ -24,7 +24,7 @@ export const LessonButton = ({ property1, className, completed, title, descripti
         viewBox="0 0 17 26"
         fill="none"
       >
-        <path d="M4.1671 21.9888L14.0759 12.8759L4.1671 3.76312" stroke="#BCC4E2" stroke-width="6.65244" stroke-linecap="round" stroke-linejoin="bevel"/>
+        <path d="M4.1671 21.9888L14.0759 12.8759L4.1671 3.76312" stroke="#BCC4E2"  stroke-linecap="round" stroke-linejoin="bevel"/>
       </svg>
       <div className="group">
         {completed && (
@@ -40,7 +40,6 @@ export const LessonButton = ({ property1, className, completed, title, descripti
 };
 
 LessonButton.propTypes = {
-  property1: PropTypes.oneOf(["completed", "default"]),
   className: PropTypes.string,
   completed: PropTypes.bool,
   lessonId: PropTypes.number.isRequired,

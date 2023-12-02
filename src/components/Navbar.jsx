@@ -1,27 +1,93 @@
-
-import { Navbar,Container,  Button ,Form, Nav } from "react-bootstrap";
-import React from 'react';
+import { Navbar, Container, Button, Form, Nav, NavDropdown } from "react-bootstrap";
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import '../styles/NavBar.scss';
+import { NavLink } from 'react-router-dom'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 const NavBar = () => {
-    return(
-<Navbar expand="lg" className=" mx-auto navbar ">
-      <Container className="navbar"fluid>
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+const navigate = useNavigate();
+const [userName, setUserName] = useState('');
+  const handleDropdownToggle = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+// ...
+
+useEffect(() => {
+  const fetchUserName = async () => {
+    try {
+      const response = await axios.post(
+        'http://localhost:5000/verify-token',
+        null,
+        {
+          withCredentials: true,
+        }
+      );
+
+      const responseData = response.data;
+        setUserName(responseData.usuario);
+      
+    } catch (error) {
+      console.error('Error al verificar el token:', error);
+    }
+  };
+
+  fetchUserName();
+}, []);
+
+// ...
+
+  const handleLogout = async () => {
+    try {
+    
+     
+      
+     
+      const response = await axios.get(`http://localhost:5000/logout`);
+
+      const responseData = response.data;
+  
+      if (responseData && responseData.status === 'success') {
+        console.log('Cerrar sesión');
+        // Elimina la cookie del lado del cliente
+        
+        Cookies.remove('token');
+        navigate('/login');
+      }
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  };
+  
+
+  return (
+    
+    <Navbar expand="lg" className="">
+      <Container className="navbar" >
+        <NavDropdown
+        
+            title={`Hola, ${userName}`}
+            id="basic-nav-dropdown"
+            show={isDropdownOpen}
+            onClick={handleDropdownToggle}
+          >
+            <NavDropdown.Item onClick={handleLogout}>Cerrar Sesión</NavDropdown.Item>
+          </NavDropdown>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="mx-auto my-2 my-lg-0 navbar-dark"
-            navbarScroll
-          >
-            <Nav.Link href="#action1 ">Temario</Nav.Link>
-            <Nav.Link href="#action2">Simulacion</Nav.Link>
-            <Nav.Link href="#" >
-              Logros
-            </Nav.Link>
+          <Nav className="mx-auto" navbarScroll>
+            <Nav.Link as={NavLink} to="/" activeClassName="active">Temario</Nav.Link>
+            <Nav.Link as={NavLink} to="/simulador" activeClassName="active">Simulacion</Nav.Link>
+            <Nav.Link  as={NavLink} to="/logros" activeClassName="active">Logros</Nav.Link>
           </Nav>
+
           
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    );
-} 
+  );
+};
+
 export default NavBar;

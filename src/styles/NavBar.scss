@@ -6,6 +6,16 @@
     font-weight: 600;
     line-height: normal;
 }
-.navbar{
-    background: none !important;
+.nav-link:active{
+    color: #FBBC05 !important;
+
+}
+.navbar {
+    justify-content: space-between!important;
+    justify-items:flex-start!important;
+    display: flex !important;
+    flex-direction: row !important;
+}
+.navbar-collapse {
+    margin-right: 9rem;
 }

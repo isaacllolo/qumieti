@@ -1,10 +1,20 @@
 .container-fluid{
-    height: 100;
     background: linear-gradient(
    116deg, rgba(66, 109, 244, 0.75) 34.51%, rgba(55, 201, 112, 0.75) 81.97%) ;
    
-   
+  
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  
+  
 }
+body, html {
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
 .theme-card{
     border-radius: 2rem !important;
 }

@@ -1,78 +1,103 @@
-// Quiz.jsx
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slide from './Slide';
+import axios from 'axios';
 import '../styles/Quiz.scss';
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
-const Quiz = ({ questions, onQuizCompletion }) => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState(Array(questions.length).fill(null));
-  const [showScore, setShowScore] = useState(false);
+const Quiz = ({ lessonId, onQuizCompletion }) => {
+  const navigate = useNavigate();
 
-  const handleNextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      calculateScore();
-      setShowScore(true);
-    }
-  };
+  const [question, setQuestion] = useState('');
+  const [selectedAnswer, setSelectedAnswer] = useState();
+  const [showScore, setShowScore] = useState();
+  const [options, setOptions] = useState([]);
+  const [correctIndex, setCorrectIndex] = useState();
+  useEffect(() => {
+    const fetchQuizQuestion = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/quiz/${lessonId}`, {
+          withCredentials: true ,
+        });
+        const quizData = response.data.quiz;
+        console.log('Quiz data:', quizData);
+    
+        // Verifica si las opciones son un string y, si es así, conviértelas a un array
+        const parsedOptions= quizData.options;
+        console.log('Parsed options:', parsedOptions);
+        setQuestion(quizData.question);
+        setCorrectIndex(quizData.correctanswerindex);
+        setOptions(parsedOptions);
+      } catch (error) {
+        console.error('Error al obtener preguntas del quiz:', error);
+      }
+    
+    
 
-  const handlePreviousQuestion = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-    }
-  };
+    };
+    fetchQuizQuestion();
+  }, [lessonId]);
 
   const handleAnswerButtonClick = (answerIndex) => {
-    const updatedAnswers = [...selectedAnswers];
-    updatedAnswers[currentQuestion] = answerIndex;
-    setSelectedAnswers(updatedAnswers);
+    setSelectedAnswer(answerIndex);
   };
-  
+
   const calculateScore = () => {
-    // Calcula el puntaje sumando las respuestas correctas
-    const score = selectedAnswers.reduce((acc, answer, index) => {
-      return acc + (answer === questions[index].correctIndex ? 1 : 0);
-    }, 0);
+    const isCorrect = selectedAnswer === correctIndex;
+    // Verifica si la respuesta seleccionada es la correcta
   
     // Llama a la función proporcionada con el puntaje
-    onQuizCompletion(score);
+    onQuizCompletion(isCorrect ? true : false);
+    console.log('Respuesta seleccionada:',selectedAnswer);
+
+    console.log('Respuesta correcta: ',correctIndex);
+    // Puedes reiniciar el estado u realizar otras acciones después de calcular el puntaje
+    setShowScore(true);
+    
   };
+const gotoCourse = () => {
+  navigate(`/course/${lessonId}`);
+}; 
+
+  const handleRetryQuiz = () => {
+    setShowScore(false);
+    // Aquí puedes agregar lógica adicional para reiniciar el estado si es necesario
+  };
+
+ 
 
   return (
     <Slide
       slideData={{
-        title: showScore ? 'Score' : 'Quiz',
+        title: showScore ? 'Resultado' : 'Quiz',
         content: (
           <div className="quiz-questions">
             {showScore ? (
               <>
-                <h3>Your Score</h3>
-                <p>{calculateScore()} out of {questions.length}</p>
+                <h3>Tu resultado</h3>
+                <p>{selectedAnswer === correctIndex ? 'Correcto!' : 'Incorrecto'}</p>
+                <Button onClick={handleRetryQuiz}>Reintentar Quiz</Button>
               </>
             ) : (
               <>
-                <h3>{questions[currentQuestion].question}</h3>
+                <h3>{question}</h3>
                 <div className="answer-options">
-                  {questions[currentQuestion].options.map((option, index) => (
-                    <button
-                      key={index}
-                      onClick={() => handleAnswerButtonClick(index)}
-                      className={`answer-option ${selectedAnswers[currentQuestion] === index ? 'selected' : ''}`}
-                      disabled={showScore}
+                  {options.map((option) => (
+                    <Button
+                      onClick={() => handleAnswerButtonClick(options.indexOf(option))}
+                      className={`answer-option `}
                     >
                       {option}
-                    </button>
+                    </Button>
                   ))}
                 </div>
+                <Button onClick={calculateScore}>Comprobar pregunta</Button>
               </>
             )}
           </div>
         ),
       }}
-      onNextSlide={handleNextQuestion}
-      onPreviousSlide={handlePreviousQuestion}
+      onNextSlide={gotoCourse}
       showNextButton={!showScore}
     />
   );

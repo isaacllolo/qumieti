@@ -2,9 +2,39 @@ import React from 'react';
 import { Card, Form, Button ,Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../styles/Register.scss';
-
-
+import axios from 'axios';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const Register = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    apellidos: '',
+    user: '',
+    email: '',
+    password: '',
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/register', formData);
+      console.log(response.data);
+      navigate('/');
+    } catch (error) {
+      console.error(error.response.data);
+    }
+  };
+
+
     return (
         
         <div className="register-container d-flex justify-content-end pe-5">
@@ -65,37 +95,35 @@ const Register = () => {
 
         </Card.Header>
         <Card.Body>
-            <Form className='row' >
+        <Form  className='row'onSubmit={handleSubmit}>
             <Form.Group className="mb-2 col">
-            <Form.Label>Nombre</Form.Label>
-                        <Form.Control type="text" name="name" placeholder="Nombre"  />
-                    </Form.Group>
-                    <Form.Group className="mb-2 col">
-                        <Form.Label>Apellidos</Form.Label>
-                        <Form.Control type="text" name="apellidos" placeholder="Apellidos"  />
-                    </Form.Group>
-                <Form.Group className="mb-3" >
-                    <Form.Label>Usuario</Form.Label>
-                    <Form.Control type="user" placeholder="Usuario" name="user"  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Ingresa tu usuario o correo electronico</Form.Label>
-                    <Form.Control type="email" placeholder="Email" name="email"  />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Row>
-                        <Form.Label className="col-auto"> Ingresa tu contraseña</Form.Label>
-                   </Row>
-                    <Form.Control type="password" placeholder="Contraseña" name="password"  />
-                </Form.Group>
-                <div className="text-center">
-                    
-                    <Button className='submbit-button' variant="primary"  type="submit">
-                        Registrar
-                    </Button>
-                </div>
-            </Form>
+              <Form.Label>Nombre</Form.Label>
+              <Form.Control type="text" name="name" placeholder="Nombre" value={formData.name} />
+            </Form.Group>
+            <Form.Group className="mb-2 col">
+              <Form.Label>Apellidos</Form.Label>
+              <Form.Control type="text" name="apellidos" placeholder="Apellidos" value={formData.apellidos}/>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Usuario</Form.Label>
+              <Form.Control type="text" name="user" placeholder="Usuario" value={formData.user} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Ingresa tu correo electronico</Form.Label>
+              <Form.Control type="email" name="email" placeholder="Email" value={formData.email} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Row>
+                <Form.Label className="col-auto"> Ingresa tu contraseña</Form.Label>
+              </Row>
+              <Form.Control type="password" name="password" placeholder="Contraseña" value={formData.password} />
+            </Form.Group>
+            <div className="text-center">
+              <Button className='submit-button' variant="primary" type="submit">
+                Registrar
+              </Button>
+            </div>
+          </Form>
         </Card.Body>
     </Card>
     </div>
@@ -103,3 +131,4 @@ const Register = () => {
 };
 
 export default Register;
+

@@ -1,60 +1,61 @@
-// Lesson.jsx
-
-import React, { useState } from 'react';
-import Slide from './Slide'; 
-import Quiz from './Quiz';   
-import '../styles/Lesson.scss';
-
+import React, { useState, useEffect } from 'react';
+import Slide from './Slide';
+import Quiz from './Quiz';
+import axios from 'axios';
+import { useParams ,useNavigate} from 'react-router-dom';
+import{headersData} from './configs'
 const Lesson = () => {
-  const lessonData = {
-    slides: [
-      { title: 'Slide 1', content: 'Contenido de la diapositiva 1' },
-      { title: 'Slide 2', content: 'Contenido de la diapositiva 2' },
-      // ... más diapositivas si es necesario
-    ],
-    quiz: {
-      questions: [
-        {
-          question: 'Pregunta 1',
-          options: ['Opción A', 'Opción B', 'Opción C'],
-          correctAnswerIndex: 0,
-        },
-        {
-          question: 'Pregunta 2',
-          options: ['Opción X', 'Opción Y', 'Opción Z'],
-          correctAnswerIndex: 1,
-        },
-        // ... más preguntas si es necesario
-      ],
-    },
-  };
-
+  const navigate = useNavigate();
+  const [slides, setSlides] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { id } = useParams();
+  useEffect(() => {
+    const fetchSlides = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/slides/${id}`,headersData);
+        setSlides(response.data);
+      } catch (error) {
+        console.error('Error al obtener datos de las slides del backend:', error);
+      }
+    };
+
+    fetchSlides();
+  }, [id]);
 
   const handleNextSlide = () => {
     setCurrentSlide(currentSlide + 1);
   };
 
   const handlePreviousSlide = () => {
-    setCurrentSlide(currentSlide - 1);
+    if (currentSlide > 0) {
+      setCurrentSlide(currentSlide - 1);
+    }
+    else {
+      navigate(`/course/${id}`);
+    }
   };
 
   const handleQuizCompletion = () => {
-    // Lógica para manejar la finalización del cuestionario, si es necesario
     console.log('Quiz completado');
+    // Lógica para manejar la finalización del cuestionario, si es necesario
   };
+
+  if (slides.length === 0) {
+    return <div>Cargando...</div>;
+  }
 
   return (
     <div className="lesson-container">
-      {currentSlide < lessonData.slides.length ? (
+      <h2 className="lesson-title">Lección</h2>
+      {currentSlide < slides.length ? (
         <Slide
-          slideData={lessonData.slides[currentSlide]}
+          slideData={slides[currentSlide]}
           onNextSlide={handleNextSlide}
           onPreviousSlide={handlePreviousSlide}
         />
       ) : (
         <Quiz
-          questions={lessonData.quiz.questions}
+          lessonId={id}
           onQuizCompletion={handleQuizCompletion}
         />
       )}
