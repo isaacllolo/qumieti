@@ -6,6 +6,8 @@ import { React ,useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Alert } from 'react-bootstrap';
 import Cookies from 'js-cookie';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const Login = () => {
     const navigate = useNavigate();
     const [usuario, setUsuario] = useState('');
@@ -23,7 +25,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const response = await axios.post('http://localhost:5000/login', {
+          const response = await axios.post(`${backendUrl}/login`, {
             usuario: usuario,
             contrasena: contrasena,
           });

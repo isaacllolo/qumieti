@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import axios from 'axios'; // Asegúrate de tener instalada la librería axios
 import '../styles/Course.scss';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const Course = () => {
 
@@ -20,7 +21,7 @@ const Course = () => {
  
     const obtenerInformacionDelTema = async () => {
        try {
-          const response = await axios.get(`http://localhost:5000/course/${id}`,
+          const response = await axios.get(`${backendUrl}/course/${id}`,
           {
             withCredentials: true,
           });

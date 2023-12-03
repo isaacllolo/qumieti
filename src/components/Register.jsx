@@ -5,6 +5,8 @@ import '../styles/Register.scss';
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -26,7 +28,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/register', formData);
+      const response = await axios.post( `${backendUrl}/register`, formData);
       console.log(response.data);
       navigate('/');
     } catch (error) {
@@ -98,25 +100,25 @@ const Register = () => {
         <Form  className='row'onSubmit={handleSubmit}>
             <Form.Group className="mb-2 col">
               <Form.Label>Nombre</Form.Label>
-              <Form.Control type="text" name="name" placeholder="Nombre" value={formData.name} />
+              <Form.Control type="text" name="name" placeholder="Nombre" value={formData.name} onChange={handleChange} />
             </Form.Group>
             <Form.Group className="mb-2 col">
               <Form.Label>Apellidos</Form.Label>
-              <Form.Control type="text" name="apellidos" placeholder="Apellidos" value={formData.apellidos}/>
+              <Form.Control type="text" name="apellidos" placeholder="Apellidos" value={formData.apellidos} onChange={handleChange} />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Usuario</Form.Label>
-              <Form.Control type="text" name="user" placeholder="Usuario" value={formData.user} />
+              <Form.Control type="text" name="user" placeholder="Usuario" value={formData.user}onChange={handleChange} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Ingresa tu correo electronico</Form.Label>
-              <Form.Control type="email" name="email" placeholder="Email" value={formData.email} />
+              <Form.Control type="email" name="email" placeholder="Email" value={formData.email}onChange={handleChange}  />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Row>
                 <Form.Label className="col-auto"> Ingresa tu contraseña</Form.Label>
               </Row>
-              <Form.Control type="password" name="password" placeholder="Contraseña" value={formData.password} />
+              <Form.Control type="password" name="password" placeholder="Contraseña" value={formData.password}onChange={handleChange}  />
             </Form.Group>
             <div className="text-center">
               <Button className='submit-button' variant="primary" type="submit">

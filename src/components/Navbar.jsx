@@ -6,6 +6,8 @@ import { NavLink } from 'react-router-dom'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const NavBar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 const navigate = useNavigate();
@@ -19,7 +21,7 @@ useEffect(() => {
   const fetchUserName = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:5000/verify-token',
+        `${backendUrl}/verify-token`,
         null,
         {
           withCredentials: true,
@@ -45,7 +47,7 @@ useEffect(() => {
      
       
      
-      const response = await axios.get(`http://localhost:5000/logout`);
+      const response = await axios.get(`${backendUrl}logout`);
 
       const responseData = response.data;
   

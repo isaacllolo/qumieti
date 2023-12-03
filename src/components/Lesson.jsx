@@ -4,6 +4,7 @@ import Quiz from './Quiz';
 import axios from 'axios';
 import { useParams ,useNavigate} from 'react-router-dom';
 import{headersData} from './configs'
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 const Lesson = () => {
   const navigate = useNavigate();
   const [slides, setSlides] = useState([]);
@@ -12,7 +13,7 @@ const Lesson = () => {
   useEffect(() => {
     const fetchSlides = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/slides/${id}`,headersData);
+        const response = await axios.get(`${backendUrl}/slides/${id}`,headersData);
         setSlides(response.data);
       } catch (error) {
         console.error('Error al obtener datos de las slides del backend:', error);

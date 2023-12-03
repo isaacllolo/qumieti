@@ -8,7 +8,6 @@ import NavBar from './components/Navbar.jsx';
 import { Outlet } from 'react-router-dom';
 import Lesson from './components/Lesson.jsx';
 import Quiz from './components/Quiz.jsx';
-import AdminPanel from './components/AdminPanel.jsx';
 import Logros from './components/Logros.jsx';
 import Simulador from './components/Simulador.jsx';
 import Cookies from 'js-cookie';
@@ -17,6 +16,7 @@ import{headersData} from './components/configs.jsx'
 
 const ProtectedRoute = ({ element }) => {
   const [userLoggedIn, setUserLoggedIn] = useState();
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     const verifyToken = async () => {
@@ -30,7 +30,7 @@ const ProtectedRoute = ({ element }) => {
         }
 
         const response = await axios.post(
-  'http://localhost:5000/verify-token',
+          `${backendUrl}/verify-token`,
   null,
   {
    
@@ -77,10 +77,6 @@ const App = () => {
           <Route
             path="/quiz"
             element={<ProtectedRoute element={<Quiz />} />}
-          />
-          <Route
-            path="/admin"
-            element={<ProtectedRoute element={<AdminPanel />} />}
           />
           <Route
             path="/logros"

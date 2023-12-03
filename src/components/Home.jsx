@@ -4,7 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import NavBar from './Navbar.jsx';
 import axios from 'axios';  // Importa la librería axios para realizar solicitudes HTTP
 import '../styles/Home.scss';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const Home = () => {
+  
   const navigate = useNavigate();
   const [themes, setThemes] = useState([]);
   const handleThemeClick = (themeId) => {
@@ -17,7 +20,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          'http://localhost:5000/temas',
+          `${backendUrl}/temas`,
           null,
           {
            
