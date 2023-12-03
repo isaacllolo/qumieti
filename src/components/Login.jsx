@@ -25,7 +25,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const response = await axios.post(`${backendUrl}/login`, {
+          const response = await axios.post(`${backendUrl}login`, {
             usuario: usuario,
             contrasena: contrasena,
           });
