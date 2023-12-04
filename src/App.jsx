@@ -31,8 +31,8 @@ const ProtectedRoute = ({ element }) => {
 
         const response = await axios.post(
           `${backendUrl}/verify-token`,{headers: {
-             
-             'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+        
+             'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With','Access-Control-Allow-Origin': '*',
           },withCredentials: true}
 );
     // Verificar la respuesta de la verificación del token y establecer el estado en consecuencia

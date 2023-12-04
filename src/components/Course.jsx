@@ -24,7 +24,7 @@ const Course = () => {
           const response = await axios.get(`${backendUrl}/course/${id}`,
           {headers: {
              
-             'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+             'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With','Access-Control-Allow-Origin': '*',
           },
             withCredentials: true,
           });
