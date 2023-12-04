@@ -24,7 +24,8 @@ const Course = () => {
           const response = await axios.get(`${backendUrl}/course/${id}`,
           {headers: {
              
-             'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With','Access-Control-Allow-Origin': '*',
+             'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With','Access-Control-Allow-Origin': 'https://quimieti-frontend.onrender.com'
+,
           },
             withCredentials: true,
           });
