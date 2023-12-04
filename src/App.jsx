@@ -31,7 +31,6 @@ const ProtectedRoute = ({ element }) => {
 
         const response = await axios.post(
           `${backendUrl}/verify-token`,
-  null,
   {
    
     withCredentials: true
