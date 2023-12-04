@@ -28,6 +28,10 @@ const Login = () => {
           const response = await axios.post(`${backendUrl}/login`, {
             usuario: usuario,
             contrasena: contrasena,
+          },
+          {
+           
+            withCredentials: true
           });
       
           if (response.data.status === 'success') {

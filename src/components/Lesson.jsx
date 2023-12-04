@@ -13,7 +13,11 @@ const Lesson = () => {
   useEffect(() => {
     const fetchSlides = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/slides/${id}`,headersData);
+        const response = await axios.get(`${backendUrl}/slides/${id}`,headersData,
+        {
+         
+          withCredentials: true
+        });
         setSlides(response.data);
       } catch (error) {
         console.error('Error al obtener datos de las slides del backend:', error);

@@ -28,7 +28,11 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post( `${backendUrl}/register`, formData);
+      const response = await axios.post( `${backendUrl}/register`, formData,
+      {
+       
+        withCredentials: true
+      });
       console.log(response.data);
       navigate('/');
     } catch (error) {
