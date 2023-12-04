@@ -22,10 +22,10 @@ const ProtectedRoute = ({ element }) => {
     const verifyToken = async () => {
       try {
         const token = Cookies.get('token');
-        console.log('Token enviado desde el frontend:', token);
+        //console.log('Token enviado desde el frontend:', token);
         if (!token) {
           // Manejar la falta de token (por ejemplo, redirigir al usuario a la página de inicio de sesión)
-          setUserLoggedIn(false);
+          setUserLoggedIn(true);
           return;
         }
 
