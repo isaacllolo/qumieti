@@ -20,9 +20,8 @@ const Quiz = ({ lessonId, onQuizCompletion }) => {
         const response = await axios.get(`${backendUrl}/quiz/${lessonId}`, {
           withCredentials: true ,
           headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
-            'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+             
+             'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
           },
         });
         const quizData = response.data.quiz;
