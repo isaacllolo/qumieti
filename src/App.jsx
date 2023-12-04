@@ -22,19 +22,19 @@ const ProtectedRoute = ({ element }) => {
     const verifyToken = async () => {
       try {
         const token = Cookies.get('token');
-        //console.log('Token enviado desde el frontend:', token);
+        console.log('Token enviado desde el frontend:', token);
         if (!token) {
           // Manejar la falta de token (por ejemplo, redirigir al usuario a la página de inicio de sesión)
-          setUserLoggedIn(true);
+          setUserLoggedIn(false);
           return;
         }
 
         const response = await axios.post(
-          `${backendUrl}/verify-token`,
-  {
-   
-    withCredentials: true
-  }
+          `${backendUrl}/verify-token`,{headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+          },withCredentials: true}
 );
     // Verificar la respuesta de la verificación del token y establecer el estado en consecuencia
  setUserLoggedIn(true);
