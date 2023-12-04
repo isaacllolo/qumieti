@@ -30,10 +30,11 @@ const ProtectedRoute = ({ element }) => {
         }
 
         const response = await axios.post(
-          `${backendUrl}/verify-token`,{headers: {
-            "Access-Control-Allow-origin": 'https://quimieti-frontend.onrender.com',
-             'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With','Access-Control-Allow-Origin': 'https://quimieti-frontend.onrender.com'
-,
+          `${backendUrl}/verify-token`,{Headers: {
+            
+'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
           },withCredentials: true}
 );
     // Verificar la respuesta de la verificación del token y establecer el estado en consecuencia
