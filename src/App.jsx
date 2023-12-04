@@ -31,7 +31,7 @@ const ProtectedRoute = ({ element }) => {
 
         const response = await axios.post(
           `${backendUrl}/verify-token`,{headers: {
-        
+            "Access-Control-Allow-origin": 'https://quimieti-frontend.onrender.com',
              'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With','Access-Control-Allow-Origin': 'https://quimieti-frontend.onrender.com'
 ,
           },withCredentials: true}
