@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../styles/Quiz.scss';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import {headersData} from './configs'
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const Quiz = ({ lessonId, onQuizCompletion }) => {
@@ -18,9 +19,7 @@ const Quiz = ({ lessonId, onQuizCompletion }) => {
     const fetchQuizQuestion = async () => {
       try {
         const response = await axios.get(`${backendUrl}/quiz/${lessonId}`, {
-          withCredentials: true ,
-          
-        });
+          headersData);
         const quizData = response.data.quiz;
         console.log('Quiz data:', quizData);
     

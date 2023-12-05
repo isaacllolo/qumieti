@@ -14,10 +14,7 @@ const Lesson = () => {
     const fetchSlides = async () => {
       try {
         const response = await axios.get(`${backendUrl}/slides/${id}`,headersData,
-        {
-          
-          withCredentials: true
-        });
+        headersData);
         setSlides(response.data);
       } catch (error) {
         console.error('Error al obtener datos de las slides del backend:', error);

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import axios from 'axios'; // Asegúrate de tener instalada la librería axios
 import '../styles/Course.scss';
+import {headersData} from './configs'
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const Course = () => {
@@ -22,9 +23,7 @@ const Course = () => {
     const obtenerInformacionDelTema = async () => {
        try {
           const response = await axios.get(`${backendUrl}/course/${id}`,
-          {
-            withCredentials: true,
-          });
+          headersData);
           console.log(response.data);
           setTema(response.data.tema);
           setLecciones(response.data.lecciones);

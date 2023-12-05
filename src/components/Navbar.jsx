@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import {headersData} from './configs'
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const NavBar = () => {
@@ -22,9 +23,7 @@ useEffect(() => {
     try {
       const response = await axios.post(
         `${backendUrl}/verify-token`,
-        {
-          withCredentials: true,
-        }
+        headersData
       );
 
       const responseData = response.data;

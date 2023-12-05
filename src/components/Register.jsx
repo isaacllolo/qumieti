@@ -5,6 +5,7 @@ import '../styles/Register.scss';
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {headersData} from './configs'
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const Register = () => {
@@ -29,10 +30,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post( `${backendUrl}/register`, formData,
-      {
-        
-        withCredentials: true
-      });
+      headersData);
       console.log(response.data);
       navigate('/');
     } catch (error) {

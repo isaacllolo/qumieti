@@ -6,6 +6,8 @@ import { React ,useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Alert } from 'react-bootstrap';
 import Cookies from 'js-cookie';
+import {headersData} from './configs'
+
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const Login = () => {
@@ -29,15 +31,8 @@ const Login = () => {
             usuario: usuario,
             contrasena: contrasena,
           },
-          {
-            headers: {
-               
-    'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
-            },
-            withCredentials: true
-          });
+          
+            headersData);
       
           if (response.data.status === 'success') {
             console.log(response.data.token);

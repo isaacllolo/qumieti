@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import NavBar from './Navbar.jsx';
 import axios from 'axios';  // Importa la librería axios para realizar solicitudes HTTP
 import '../styles/Home.scss';
+import {headersData} from './configs'
+
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const Home = () => {
@@ -21,9 +23,7 @@ const Home = () => {
       try {
         const response = await axios.post(
           `${backendUrl}/temas`,
-          {
-            withCredentials: true
-          }
+          headersData
         ); 
         setThemes(response.data);
         console.log('Datos obtenidos del backend:', response.data);
