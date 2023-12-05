@@ -22,12 +22,7 @@ const Course = () => {
     const obtenerInformacionDelTema = async () => {
        try {
           const response = await axios.get(`${backendUrl}/course/${id}`,
-          {headers: {
-             
-'Access-Control-Allow-Origin': 'https://quimieti-frontend.onrender.com',
-      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
-          },
+          {
             withCredentials: true,
           });
           console.log(response.data);

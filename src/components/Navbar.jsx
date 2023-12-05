@@ -22,11 +22,7 @@ useEffect(() => {
     try {
       const response = await axios.post(
         `${backendUrl}/verify-token`,
-        {headers: {
-           
-          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
-        },
+        {
           withCredentials: true,
         }
       );
