@@ -23,7 +23,17 @@ useEffect(() => {
     try {
       const response = await axios.post(
         `${backendUrl}/verify-token`,
+<<<<<<< HEAD
         headersData
+=======
+        {headers: {
+           
+          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+        },
+          withCredentials: true,
+        }
+>>>>>>> parent of 861dd8b (try cor6)
       );
 
       const responseData = response.data;

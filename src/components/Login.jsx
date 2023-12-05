@@ -31,8 +31,15 @@ const Login = () => {
             usuario: usuario,
             contrasena: contrasena,
           },
-          
-            headersData);
+          {
+            headers: {
+               
+    'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+            },
+            withCredentials: true
+          });
       
           if (response.data.status === 'success') {
             console.log(response.data.token);

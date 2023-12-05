@@ -23,7 +23,20 @@ const Home = () => {
       try {
         const response = await axios.post(
           `${backendUrl}/temas`,
+<<<<<<< HEAD
           headersData
+=======
+          null,
+          {
+            headers: {
+               
+    'Access-Control-Allow-Origin': 'https://quimieti-frontend.onrender.com',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+            },
+            withCredentials: true
+          }
+>>>>>>> parent of 861dd8b (try cor6)
         ); 
         setThemes(response.data);
         console.log('Datos obtenidos del backend:', response.data);

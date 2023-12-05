@@ -30,7 +30,18 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post( `${backendUrl}/register`, formData,
+<<<<<<< HEAD
       headersData);
+=======
+      {
+        headers: {
+           
+          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+        },
+        withCredentials: true
+      });
+>>>>>>> parent of 861dd8b (try cor6)
       console.log(response.data);
       navigate('/');
     } catch (error) {
