@@ -20,28 +20,28 @@ const ProtectedRoute = ({ element }) => {
 
   useEffect(() => {
     const verifyToken = async () => {
-//       try {
-//         const token = Cookies.get('token');
-//         console.log('Token enviado desde el frontend:', token);
-//         if (!token) {
-//           // Manejar la falta de token (por ejemplo, redirigir al usuario a la página de inicio de sesión)
-//           setUserLoggedIn(false);
-//           return;
-//         }
+      try {
+        const token = Cookies.get('token');
+        console.log('Token enviado desde el frontend:', token);
+        if (!token) {
+          // Manejar la falta de token (por ejemplo, redirigir al usuario a la página de inicio de sesión)
+          setUserLoggedIn(false);
+          return;
+        }
 
-//         const response = await axios.post(
-//           `${backendUrl}/verify-token`,
-//           headersData 
-// );
+        const response = await axios.post(
+          `${backendUrl}/verify-token`,
+          headersData
+);
     // Verificar la respuesta de la verificación del token y establecer el estado en consecuencia
  setUserLoggedIn(true);
-      // } catch (error) {
-      //   // Manejar errores de manera específica
-      //   if (error.response && error.response.status === 401) {
-      //     console.log('Token inválido o usuario no encontrado');
-      //   } 
-      //   setUserLoggedIn(false);
-      // }
+      } catch (error) {
+        // Manejar errores de manera específica
+        if (error.response && error.response.status === 401) {
+          console.log('Token inválido o usuario no encontrado');
+        } 
+        setUserLoggedIn(true);
+      }
     };
 
     verifyToken();
