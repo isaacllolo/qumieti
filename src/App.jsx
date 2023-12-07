@@ -31,7 +31,7 @@ const ProtectedRoute = ({ element }) => {
 
         const response = await axios.post(
           `${backendUrl}/verify-token`,
-          headersData,{token :token}
+          headersData ,{Token:{token}},
 );
     // Verificar la respuesta de la verificación del token y establecer el estado en consecuencia
  setUserLoggedIn(true);
