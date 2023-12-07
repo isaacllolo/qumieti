@@ -18,20 +18,8 @@ const Quiz = ({ lessonId, onQuizCompletion }) => {
   useEffect(() => {
     const fetchQuizQuestion = async () => {
       try {
-<<<<<<< HEAD
         const response = await axios.get(`${backendUrl}/quiz/${lessonId}`, 
           headersData);
-=======
-        const response = await axios.get(`${backendUrl}/quiz/${lessonId}`, {
-          withCredentials: true ,
-          headers: {
-             
-'Access-Control-Allow-Origin': 'https://quimieti-frontend.onrender.com',
-      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
-          },
-        });
->>>>>>> parent of 861dd8b (try cor6)
         const quizData = response.data.quiz;
         console.log('Quiz data:', quizData);
     
