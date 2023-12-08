@@ -12,7 +12,7 @@ import Logros from './components/Logros.jsx';
 import Simulador from './components/Simulador.jsx';
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import{headersData} from './components/configs.jsx'
+import {headersData} from './configs'
 
 const ProtectedRoute = ({ element }) => {
   const [userLoggedIn, setUserLoggedIn] = useState();
