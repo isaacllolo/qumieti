@@ -40,7 +40,7 @@ const ProtectedRoute = ({ element }) => {
         if (error.response && error.response.status === 401) {
           console.log('Token inválido o usuario no encontrado');
         } 
-        setUserLoggedIn(true);
+        setUserLoggedIn(false);
       }
     };
 
