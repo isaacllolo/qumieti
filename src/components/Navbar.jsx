@@ -22,7 +22,7 @@ useEffect(() => {
   const fetchUserName = async () => {
     try {
       const response = await axios.post(
-        `${backendUrl}/getuser`,
+        `${backendUrl}/getuser`,{},
         headersData
       );
 

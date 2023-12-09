@@ -22,7 +22,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          `${backendUrl}/temas`,
+          `${backendUrl}/temas`,{},
           headersData
         ); 
         setThemes(response.data);
