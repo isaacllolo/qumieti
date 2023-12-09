@@ -13,7 +13,7 @@ const Lesson = () => {
   useEffect(() => {
     const fetchSlides = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/slides/${id}`,headersData,
+        const response = await axios.get(`${backendUrl}/slides/${id}`,{},
         headersData);
         setSlides(response.data);
       } catch (error) {

@@ -22,7 +22,7 @@ const Course = () => {
  
     const obtenerInformacionDelTema = async () => {
        try {
-          const response = await axios.get(`${backendUrl}/course/${id}`,
+          const response = await axios.get(`${backendUrl}/course/${id}`,{},
           headersData);
           console.log(response.data);
           setTema(response.data.tema);

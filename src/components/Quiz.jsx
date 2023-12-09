@@ -18,7 +18,7 @@ const Quiz = ({ lessonId, onQuizCompletion }) => {
   useEffect(() => {
     const fetchQuizQuestion = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/quiz/${lessonId}`, 
+        const response = await axios.get(`${backendUrl}/quiz/${lessonId}`, {},
           headersData);
         const quizData = response.data.quiz;
         console.log('Quiz data:', quizData);
