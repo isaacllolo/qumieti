@@ -18,12 +18,10 @@ const Course = () => {
 
 
   useEffect(() => {
-    console.log('ID del tema desde el frontend:', id);
  
     const obtenerInformacionDelTema = async () => {
        try {
-          const response = await axios.get(`${backendUrl}/course/${id}`,{},
-          headersData);
+          const response = await axios.get(`${backendUrl}/course/${id}`,{},headersData);
           console.log(response.data);
           setTema(response.data.tema);
           setLecciones(response.data.lecciones);
@@ -34,7 +32,7 @@ const Course = () => {
     };
  
     obtenerInformacionDelTema();
- }, []);
+ }, [id]);
  
 
   return (
