@@ -34,7 +34,7 @@ const Course = () => {
     };
  
     obtenerInformacionDelTema();
- }, [id]);
+ }, []);
  
 
   return (
