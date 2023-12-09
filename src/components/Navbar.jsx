@@ -22,7 +22,7 @@ useEffect(() => {
   const fetchUserName = async () => {
     try {
       const response = await axios.post(
-        `${backendUrl}/verify-token`,
+        `${backendUrl}/getuser`,
         headersData
       );
 
@@ -45,7 +45,7 @@ useEffect(() => {
      
       
      
-      const response = await axios.get(`${backendUrl}logout`);
+      const response = await axios.get(`${backendUrl}/logout`);
 
       const responseData = response.data;
   
