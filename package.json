@@ -27,7 +27,7 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "serve": "serve dist -l $PORT"
+    "serve": "serve dist-s -n -L -p $PORT"
   },
   "eslintConfig": {
     "extends": [
