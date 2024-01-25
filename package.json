@@ -10,7 +10,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
-    "ci": "^2.3.0",
     "dotenv": "^16.3.1",
     "js-cookie": "^3.0.5",
     "react": "^18.2.0",
@@ -23,10 +22,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "serve build ",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build",
+    "serve": "serve dist -l $PORT"
   },
   "eslintConfig": {
     "extends": [
@@ -45,10 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.0.12"
   }
-}
+} 
