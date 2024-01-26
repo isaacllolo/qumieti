@@ -28,7 +28,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "serve dist  -l -p 3000",
+    "start": "serve dist -s -l -p $PORT",
     "build": "vite build",
     "serve": "serve dist  -l  3000 ",
     "preview": "vite preview"
