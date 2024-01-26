@@ -28,9 +28,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "serve dist -s -l -p $PORT",
+    "start": "serve dist -s -n -L -p $PORT",
     "build": "vite build",
-    "serve": "serve dist  -l  3000 ",
+    "serve": "serve dist -s -l -p $PORT",
     "preview": "vite preview"
   },
   "eslintConfig": {
