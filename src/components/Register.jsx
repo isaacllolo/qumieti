@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {headersData} from './configs'
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_APP_URI;
 
 const Register = () => {
   const [formData, setFormData] = useState({

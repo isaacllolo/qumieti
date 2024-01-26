@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import {headersData} from './configs'
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_APP_URI;
 
 const NavBar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

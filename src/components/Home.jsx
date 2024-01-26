@@ -6,7 +6,7 @@ import axios from 'axios';  // Importa la librería axios para realizar solicitu
 import '../styles/Home.scss';
 import {headersData} from './configs'
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_APP_URI;
 
 const Home = () => {
   

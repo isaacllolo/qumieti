@@ -8,7 +8,7 @@ import { Alert } from 'react-bootstrap';
 import Cookies from 'js-cookie';
 import {headersData} from './configs'
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_APP_URI;
 
 const Login = () => {
     const navigate = useNavigate();

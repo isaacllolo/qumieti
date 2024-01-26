@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios'; // Asegúrate de tener instalada la librería axios
 import '../styles/Course.scss';
 import {headersData} from './configs'
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_APP_URI;
 
 const Course = () => {
 
