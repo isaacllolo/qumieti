@@ -13,6 +13,7 @@ import Simulador from './components/Simulador.jsx';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import{headersData} from './components/configs'
+import Admin from './components/Admin.jsx';
 
 const ProtectedRoute = ({ element }) => {
   const [userLoggedIn, setUserLoggedIn] = useState();
@@ -61,6 +62,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<ProtectedRoute element={<Home />} />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/register" element={<Register />} />
           <Route
             path="/course/:id"
