@@ -5,7 +5,7 @@ import '../styles/Quiz.scss';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import {headersData} from './configs'
-const backendUrl = process.env.VITE_APP_URI;
+const backendUrl = import.meta.env.VITE_APP_URI;
 
 const Quiz = ({ lessonId, onQuizCompletion }) => {
   const navigate = useNavigate();

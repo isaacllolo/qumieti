@@ -6,7 +6,7 @@ import axios from 'axios';  // Importa la librería axios para realizar solicitu
 import '../styles/Home.scss';
 import {headersData} from './configs'
 
-const backendUrl = process.env.VITE_APP_URI;
+const backendUrl = import.meta.env.VITE_APP_URI;
 
 const Home = () => {
   

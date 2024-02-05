@@ -16,7 +16,7 @@ import{headersData} from './components/configs'
 
 const ProtectedRoute = ({ element }) => {
   const [userLoggedIn, setUserLoggedIn] = useState();
-  const backendUrl = process.env.VITE_APP_URI;
+  const backendUrl = import.meta.env.VITE_APP_URI;
 
   useEffect(() => {
     const verifyToken = async () => {

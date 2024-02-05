@@ -30,7 +30,7 @@
   "scripts": {
     "start": "serve dist -s -n -p $PORT",
     "build": "vite build",
-    "serve": "serve dist -s -l -p $PORT",
+    "serve": "serve dist -s" ,
     "preview": "vite preview"
   },
   "eslintConfig": {

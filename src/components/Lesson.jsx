@@ -4,7 +4,7 @@ import Quiz from './Quiz';
 import axios from 'axios';
 import { useParams ,useNavigate} from 'react-router-dom';
 import{headersData} from './configs'
-const backendUrl = process.env.VITE_APP_URI;
+const backendUrl = import.meta.env.VITE_APP_URI;
 const Lesson = () => {
   const navigate = useNavigate();
   const [slides, setSlides] = useState([]);
