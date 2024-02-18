@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Accordion, Card, Button, Form, Modal, ListGroup } from 'react-bootstrap';
 import axios from 'axios';
+import {headersData} from './configs'
 
 const backendUrl = import.meta.env.VITE_APP_URI;
 
@@ -28,7 +29,8 @@ const Admin = () => {
 
   const agregarTema = async () => {
     try {
-      const response = await axios.post(`${backendUrl}/admin/temas`, { nombre: nuevoTema });
+      const response = await axios.post(`${backendUrl}/admin/temas`, { nombre: nuevoTema },
+      headersData);
       console.log('Tema agregado:', response.data.nuevoTema);
       obtenerDatosAdmin();
       setShowAgregarTemaModal(false);
@@ -40,7 +42,8 @@ const Admin = () => {
 
   const editarTema = async (id, nuevoNombre) => {
     try {
-      const response = await axios.put(`${backendUrl}/admin/temas/${id}`, { nombre: nuevoNombre });
+      const response = await axios.put(`${backendUrl}/admin/temas/${id}`, { nombre: nuevoNombre },
+      headersData);
       console.log('Tema editado:', response.data.temaEditado);
       obtenerDatosAdmin();
     } catch (error) {
@@ -50,7 +53,8 @@ const Admin = () => {
 
   const eliminarTema = async (id) => {
     try {
-      const response = await axios.delete(`${backendUrl}/admin/temas/${id}`);
+      const response = await axios.delete(`${backendUrl}/admin/temas/${id}`,
+      headersData);
       console.log('Tema eliminado:', response.data.temaEliminado);
       obtenerDatosAdmin();
     } catch (error) {
@@ -64,7 +68,8 @@ const Admin = () => {
         id_tema: temaId,
         title: nuevoTitulo,
         description: nuevaDescripcion,
-      });
+      },
+      headersData);
       console.log('Lección agregada:', response.data.nuevaLeccion);
       obtenerDatosAdmin();
       setShowAgregarLeccionModal(false);
@@ -80,7 +85,8 @@ const Admin = () => {
       const response = await axios.put(`${backendUrl}/admin/lecciones/${id}`, {
         title: nuevoTitulo,
         description: nuevaDescripcion,
-      });
+      },
+      headersData);
       console.log('Lección editada:', response.data.leccionEditada);
       obtenerDatosAdmin();
     } catch (error) {
@@ -90,7 +96,8 @@ const Admin = () => {
 
   const eliminarLeccion = async (id) => {
     try {
-      const response = await axios.delete(`${backendUrl}/admin/lecciones/${id}`);
+      const response = await axios.delete(`${backendUrl}/admin/lecciones/${id}`,
+      headersData);
       console.log('Lección eliminada:', response.data.leccionEliminada);
       obtenerDatosAdmin();
     } catch (error) {
@@ -105,7 +112,8 @@ const Admin = () => {
         question: pregunta,
         options: opciones,
         correctAnswerIndex: respuestaCorrecta,
-      });
+      },
+      headersData);
       console.log('Quiz agregado:', response.data.nuevoQuiz);
       obtenerDatosAdmin();
     } catch (error) {
@@ -119,7 +127,8 @@ const Admin = () => {
         question: pregunta,
         options: opciones,
         correctAnswerIndex: respuestaCorrecta,
-      });
+      },
+      headersData);
       console.log('Quiz editado:', response.data.quizEditado);
       obtenerDatosAdmin();
     } catch (error) {
@@ -129,7 +138,8 @@ const Admin = () => {
 
   const eliminarQuiz = async (id) => {
     try {
-      const response = await axios.delete(`${backendUrl}/admin/quizzes/${id}`);
+      const response = await axios.delete(`${backendUrl}/admin/quizzes/${id}`,
+      headersData);
       console.log('Quiz eliminado:', response.data.quizEliminado);
       obtenerDatosAdmin();
     } catch (error) {
@@ -144,7 +154,8 @@ const Admin = () => {
         title: titulo,
         content: contenido,
         image_url: imageUrl,
-      });
+      },
+      headersData);
       console.log('Slide agregado:', response.data.nuevoSlide);
       obtenerDatosAdmin();
     } catch (error) {
@@ -158,7 +169,8 @@ const Admin = () => {
         title: titulo,
         content: contenido,
         image_url: imageUrl,
-      });
+      },
+      headersData);
       console.log('Slide editado:', response.data.slideEditado);
       obtenerDatosAdmin();
     } catch (error) {
@@ -168,7 +180,8 @@ const Admin = () => {
 
   const eliminarSlide = async (id) => {
     try {
-      const response = await axios.delete(`${backendUrl}/admin/slides/${id}`);
+      const response = await axios.delete(`${backendUrl}/admin/slides/${id}`,
+      headersData);
       console.log('Slide eliminado:', response.data.slideEliminado);
       obtenerDatosAdmin();
     } catch (error) {
