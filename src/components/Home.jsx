@@ -41,7 +41,7 @@ const Home = () => {
       <div>
       {Array.isArray(themes) && themes.length > 0 ? (
           themes.map((theme) => (
-          <Card key={theme.id} className={`theme-card flex-row col-5 mx-auto my-5 ${theme.completado ? 'completed-card' : ''}`}
+          <Card key={theme.id} className={`theme-card flex-row col-md-5 mx-auto my-5 ${theme.completado ? 'completed-card' : ''}`}
           >
             <Image className="img-theme-card card-img-left img-fluid" src={`https://picsum.photos/200/100?random=${theme.id}`} alt={`Theme ${theme.id}`} />
             <Card.Body className="d-flex flex-column justify-content-center align-items-center text-center">
